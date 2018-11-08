@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;   
+    background-color: #fff;
+}
+h1{
+    margin: 0;
+    
+}
+.top{    
+    height: 80px;
+    background-color: #eee;
+}
+.menu{    
+    height: 40px;
+    background-color: #ddd;
+}
+.container{    
+    min-height: 200px;
+    background-color: #fff;
+}
+.footer{    
+    height: 80px;
+    background-color: #ddd;
+}

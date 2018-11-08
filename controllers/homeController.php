@@ -3,13 +3,9 @@ class homeController extends Controller{
 
 	public function index(){
 
-		$dados = array(
-			'quantidade'=>5,
-			'idade'=>'29',
-			'nome'=> 'Rogério'
-		);
+		$data = array();
 
-		$this->loadTemplate('home',$dados);
+		$this->loadTemplate('home',$data);
 	}
 
 

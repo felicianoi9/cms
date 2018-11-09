@@ -10,7 +10,7 @@
         Topo
     </div>
     <div class="menu">
-        Menu
+        <?php $this->loadMenu() ;?>
     </div>
     <div class="container">
         <?php $this->loadViewInTemplate($viewName, $viewData);?>

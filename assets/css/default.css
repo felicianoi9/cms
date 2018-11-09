@@ -11,9 +11,26 @@ h1{
     height: 80px;
     background-color: #eee;
 }
-.menu{    
+.menu ul{    
     height: 40px;
     background-color: #ddd;
+    margin:0;
+    padding: 0;
+    list-style: none;
+    line-height: 40px;
+    text-decoration: none;
+    
+}
+.menu li{
+    height: 40px;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #345;
+}
+.menu li:hover{
+    background-color: #000;
+    color: #fff;
 }
 .container{    
     min-height: 200px;

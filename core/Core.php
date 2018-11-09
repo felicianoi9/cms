@@ -40,13 +40,23 @@ class Core{
 			$currentAction = 'index';
 		}
 		if(!file_exists('controllers/'.$currentController.'.php') || !method_exists($currentController, $currentAction)){
-
-			$currentController='notfoundController';
-			$currentAction = 'index';
+			$p = new Pages();
+			
+			$name = explode('Controller', $currentController);
+			$page = $p->existPage($name[0], 'Controller');
+			
+			if( $page == 0){
+				$currentController='notfoundController';
+				$currentAction = 'index';
+			}else{
+								
+				$currentController='pagesController';
+				$currentAction = 'index';
+				$params = array($name[0]);	
+			} 				
 		}
-
 		$c = new $currentController();
-
+		
 		call_user_func_array( array($c, $currentAction), $params);
 
 			

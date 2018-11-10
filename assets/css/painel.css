@@ -1,0 +1,103 @@
+body{
+    margin: 0;
+    padding: 0;   
+    background-color: #fff;
+}
+h1{
+    margin: 0;
+    
+}
+.top{    
+    height: 80px;
+    background-color: #333;
+}
+.menu ul{    
+    height: 40px;
+    background-color: #ddd;
+    margin:0;
+    padding: 0;
+    padding-left: 40px;
+    list-style: none;
+    line-height: 40px;
+    text-decoration: none;
+    
+}
+.menu li{
+    height: 40px;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #345;
+}
+.menu li:hover{
+    background-color: #000;
+    color: #fff;
+    
+}
+.container{    
+    min-height: 200px;
+    background-color: #fff;
+}
+.footer{    
+    height: 80px;
+    background-color: #ddd;
+}
+.home_banner{
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+.home_banner_txt{
+    height: 400px;
+    line-height: 400px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    margin-top: -400px;
+    color:#bbb;
+}
+.home_cta{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    
+}
+.home_cta a{
+    text-decoration: none;
+    color: #000;
+}
+.home_cta a div{
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: orange;
+    border-radius: 5px;
+    margin: auto;
+    color: #273192;
+    font-weight: bold;
+}
+.home_depo{
+    width: 400px;
+    margin: auto;  
+    margin-top: 30px;
+}
+.home_depo_item {
+    width: 400px;
+    margin-bottom: 20px;
+}
+.home_depo_item fieldset{
+    width: 100%;
+    border-radius: 8px;
+}
+.home_depo h2{
+    color: #444;    
+}
+.menu .logout{
+    margin: 0;
+    float: right;
+    background-color: orangered;
+    color: #fff;
+}

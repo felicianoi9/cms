@@ -17,6 +17,11 @@ class Controller {
 		require 'views/templates/'.$this->config['site_template'].'.php';
 	}
 
+	public function loadTemplateInPainel($viewName, $viewData = array()){
+		extract($viewData); 
+		require 'views/painel.php';
+	}
+
 	public function loadViewInTemplate($viewName, $viewData = array()){
 		extract($viewData); 
 		require 'views/'.$viewName.'.php';

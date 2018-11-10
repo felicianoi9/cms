@@ -9,15 +9,10 @@
 	
     <div class="menu">
       <ul>          
-          <li>Página 1</li>
-          <li>Página 2</li>
-          <li>Página 3</li>
-          <li>Página 4</li>
-      </ul>
-      
-      <a href="<?php echo BASE;?>painel/logout"><div class="logout">Sair</div></a>
+          <a href="<?php echo BASE;?>painel"><li>Páginas</li></a>
+          <a href="<?php echo BASE;?>painel/menus"><li>Menus</li></a>
           
-      
+      </ul>     
     </div>
     <div class="container">
         <?php $this->loadViewInTemplate($viewName, $viewData);?>

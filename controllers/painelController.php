@@ -2,11 +2,33 @@
 class painelController extends Controller{
     
     public function index(){  
+        $data = array(
+            'pages'=>''
+        );
         $u = new Users();
         $u->isLogged();
 
-        $data = array();
+        // Listagem de páginas para o View painel/home 
+        $pages = new Pages();
+        $data['pages'] = $pages->getPages();
+
+        
         $this->loadTemplateInPainel('painel/home',$data);
+    }
+
+    public function menus(){
+        $data = array(
+            'menus'=>''
+        );
+        $u = new Users();
+        $u->isLogged();
+
+        // Listagem de páginas para o View painel/home 
+        $menus = new Menu();
+        $data['menus'] = $menus->getMenu();
+
+        
+        $this->loadTemplateInPainel('painel/menus',$data);
     }
 
     public function login(){

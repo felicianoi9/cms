@@ -150,9 +150,10 @@ class painelController extends Controller{
                        
 
             $arquivo = $_FILES['home_banner'];            
-
-            if(isset($arquivo['tmp_name']) && !empty($arquivo['tmp_name']) ){    
-                move_uploaded_file($arquivo['tmp_name'], BASE."assets/images/".$arquivo['name'] );                
+            //print_r($arquivo);exit;
+            if(isset($arquivo['tmp_name']) && !empty($arquivo['tmp_name']) ){  
+                $arquivo['name'] = md5(time().rand(0,99)).'.png'; 
+                move_uploaded_file($arquivo['tmp_name'], "assets/images/".$arquivo['name'] );                
                 $c->setPropriedade('home_banner', $arquivo['name']);    
             }
 

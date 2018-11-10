@@ -31,6 +31,54 @@ class painelController extends Controller{
         $this->loadTemplateInPainel('painel/menus',$data);
     }
 
+    public function menuAdd(){
+        $data = array();
+        $u = new Users();
+        $u->isLogged();
+
+        // Adiciona Menu à lista de menus
+        if(isset($_POST['name']) && !empty($_POST['name'])){
+            $menus = new Menu();
+            $name = addslashes($_POST['name']);
+            $url = addslashes($_POST['url']);
+
+            $menus->add($name, $url);
+            header('Location: '.BASE.'painel/menus');
+        }          
+        $this->loadTemplateInPainel('painel/menu_add',$data);  
+    }
+
+    public function menuEdit($id){
+        $data = array(
+            'menus'=>''
+        );
+        $u = new Users();
+        $u->isLogged();
+        $menus = new Menu();
+        $data['menus'] = $menus->getMenu($id);
+        // Edita Menu
+        if(isset($_POST['name']) && !empty($_POST['name'])){
+            $menus = new Menu();
+            $name = addslashes($_POST['name']);
+            $url = addslashes($_POST['url']);
+
+            $menus->edit($id, $name, $url);
+            header('Location: '.BASE.'painel/menus');
+        }          
+        $this->loadTemplateInPainel('painel/menu_edit',$data);  
+    }
+
+    public function menuDel($id){
+        $data = array();
+        $u = new Users();
+        $u->isLogged();
+
+        $menus = new Menu();
+        $menus->del($id);
+        header('Location: '.BASE.'painel/menus');              
+
+    }
+
     public function login(){
         $data = array(
             'msg' => ''

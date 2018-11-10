@@ -1,3 +1,4 @@
+<h1>Minhas páginas</h1>
 <table border="0" width="100%">
     <tr>
         <th align="left">Id</th>

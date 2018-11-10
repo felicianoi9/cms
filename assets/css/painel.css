@@ -2,15 +2,16 @@ body{
     margin: 0;
     padding: 0;   
     background-color: #fff;
+    font-family:  Arial, Verdana;
 }
 h1{
     margin: 0;
-    
+    color: #0a036e;
 }
 
 .menu ul{    
     height: 40px;
-    background-color:  #000;
+    background-color: #0a036e;
     margin:0;
     padding: 0;
     padding-left: 40px;
@@ -44,4 +45,96 @@ h1{
     float: right;
     background-color: orangered;
     color: #fff;
+}
+.button_menus{
+    width: 30px;
+    height: 40px;
+    line-height: 40px;    
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom:5px;
+    text-decoration: none;
+}
+.button_menusAdd{
+    border: 1px solid #124901;
+    background-color:  #c3fae3;
+    color: #124901;
+}
+.button_menusDel{
+    border: 1px solid #300202;
+    background-color:  #f33e3e;
+    color: #300202;
+
+}
+.button_menusDel:hover{
+    border: 1px solid #f33e3e;
+    background-color:  #a70505;
+    color: #fff;
+
+}
+.button_menusAdd:hover{
+    border: 1px solid #fff;
+    background-color: #4a9e30;
+    color: #fff;
+}
+td{
+    color: #124901;
+    padding-left: 10px;  
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #124901;
+    border-radius: 5px;
+}
+th{
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    background-color:  #124901;
+    color: #fff;
+    border-radius: 5px;
+}
+input[type='text']{
+    
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e7ecf1;
+    color:  #003;
+    border:0;
+}
+input[type='submit']{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: #0a036e;
+    border: 1px solid #124901;
+    background-color: #124901;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 3px solid #124901;
+    border-radius: 5px;
+    vertical-align: auto;
+}
+input[type='submit']:hover{
+    border: 3px solid #124901;
+    background-color: #fff;
+    color: #124901;
+    font-size: 15px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+
+}
+fieldset{
+    border: 1px solid #0a036e;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #0a036e;
+    padding-right: 13px;
 }

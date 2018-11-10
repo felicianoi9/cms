@@ -15,7 +15,7 @@ class painelController extends Controller{
         
         $this->loadTemplateInPainel('painel/home',$data);
     }
-
+    /////////////// INÍCIO - Actions do Menu /////////////////
     public function menus(){
         $data = array(
             'menus'=>''
@@ -78,7 +78,105 @@ class painelController extends Controller{
         header('Location: '.BASE.'painel/menus');              
 
     }
+    //////////// FIM- Actions do Menu /////////////////
 
+    /////////////// INÍCIO - Actions das páginas /////////////////
+    public function pageAdd(){
+        $data = array();
+        $u = new Users();
+        $u->isLogged();
+
+        // Adiciona Menu à lista de páginas
+        if(isset($_POST['title']) && !empty($_POST['title'])){
+            $pages = new Pages();
+            $title = addslashes(utf8_decode($_POST['title']));
+            $url = addslashes($_POST['url']);
+            $body = addslashes($_POST['body']);
+
+            $pages->add($title, $url, $body);
+
+            if(isset($_POST['add_menu']) && !empty($_POST['add_menu'])){
+                $menu = new Menu();
+                $menu->add($title, $url);
+            }
+            header('Location: '.BASE.'painel');
+        }          
+        $this->loadTemplateInPainel('painel/page_add',$data); 
+    }
+
+    public function pageEdit($id){
+        $data = array(
+            'page'=>''
+        );
+        $u = new Users();
+        $u->isLogged();
+        $page = new Pages();
+        $data['page'] = $page->getPages($id);
+
+        // Edita uma página (título, url e body)
+        if(isset($_POST['title']) && !empty($_POST['title'])){
+            
+            $title = addslashes(utf8_decode($_POST['title']));
+            $url = addslashes($_POST['url']);
+            $body = addslashes($_POST['body']);
+
+            $page->edit($id, $title, $url, $body);
+            header('Location: '.BASE.'painel');
+        }          
+        $this->loadTemplateInPainel('painel/page_edit',$data); 
+    }
+    public function pageDel($id){
+        $data = array();
+        $u = new Users();
+        $u->isLogged();
+
+        $page = new Pages();
+        $page->del($id);
+        header('Location: '.BASE.'painel');              
+
+    }
+    /////////////// FIM - Actions das páginas ////////////////////
+
+    /////////////// INÍCIO - Actions das Configurações /////////////////
+    public function config(){
+        $u = new Users();
+        $u->isLogged();        
+        $c = new Config();
+
+        if(isset($_POST['site_title']) && !empty($_POST['site_title'])) {
+            $site_title = addslashes($_POST['site_title']);
+            $home_welcome = addslashes($_POST['home_welcome']);
+            $site_template = addslashes($_POST['site_template']);
+                       
+
+            $arquivo = $_FILES['home_banner'];            
+
+            if(isset($arquivo['tmp_name']) && !empty($arquivo['tmp_name']) ){    
+                move_uploaded_file($arquivo['tmp_name'], BASE."assets/images/".$arquivo['name'] );                
+                $c->setPropriedade('home_banner', $arquivo['name']);    
+            }
+
+            $c->setPropriedade('site_title', $site_title);
+            $c->setPropriedade('home_welcome', $home_welcome);
+            $c->setPropriedade('site_template', $site_template);
+            
+
+            header("Location: ".BASE."painel/config");
+            exit;
+        }
+
+        $data = array();
+
+        $array = $c->getConfig();
+        $data['site_title'] = $array['site_title'];
+        $data['site_template'] = $array['site_template'];
+        $data['home_banner'] = $array['home_banner'];
+        $data['home_welcome'] = $array['home_welcome'];
+               
+               
+        $this->loadTemplateInPainel('painel/config',$data); 
+    }
+    /////////////// FIM - Actions das Configurações  ////////////////////
     public function login(){
         $data = array(
             'msg' => ''

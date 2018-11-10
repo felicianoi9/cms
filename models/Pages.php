@@ -1,11 +1,19 @@
 <?php
 class Pages extends Model{
-    public function getPages(){
+    public function getPages($id = 0){
         $array = array();
         $sql = "SELECT id, url, title FROM pages";
+        if($id>0 ){
+            $sql = "SELECT * FROM pages WHERE id='$id' "; 
+        }
         $sql = $this->db->query($sql);
         if ($sql->rowCount()>0){
-            $array = $sql->fetchAll();
+            if($id>0){
+                $array = $sql->fetch();
+            }else{
+                $array = $sql->fetchAll();
+            }
+            
         }    
         return $array;  
     }
@@ -26,5 +34,17 @@ class Pages extends Model{
         }else{
             return 0;
         }
+    }    
+    public function add($title, $url, $body){        
+        $this->db->query("INSERT INTO pages SET title='$title', url='$url', body='$body' ");
+        
+    }
+
+    public function edit($id, $title, $url, $body){
+        $this->db->query("UPDATE pages SET title='$title', url='$url', body='$body' WHERE id='$id' ");
+    }
+
+    public function del($id){
+        $this->db->query("DELETE FROM pages WHERE id ='$id'");
     }
 }

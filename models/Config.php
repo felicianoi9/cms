@@ -12,4 +12,10 @@ class Config extends Model{
         } 
         return $array;
     }
+    public function setPropriedade($name, $valor) {
+
+		$this->db->query("UPDATE config SET valor = '$valor' WHERE name = '$name'");
+
+	}
+
 }

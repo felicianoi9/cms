@@ -20,7 +20,10 @@
       </button>
       <div class="navbar-collapse collapse " id="navbarMenu">
         <div class="navbar-nav">
-          <?php $this->loadMenu() ;?>
+          <a href="#top" class="nav-item nav-link  ">Home</a>
+          <a href="#servicos" class="nav-item nav-link  ">Seviços</a>
+          <a href="#produtos" class="nav-item nav-link">Produtos</a>
+          <a href="#empresa" class="nav-item nav-link">Empresa</a>
           <a href="#contato" class="nav-item nav-link" data-toggle="modal" data-target="#contato">Contato</a>
           <a href="#mapa" class="nav-item nav-link" data-toggle="modal" data-target="#mapa">Onde Estamos</a>
         </div>

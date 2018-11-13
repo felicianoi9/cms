@@ -56,6 +56,8 @@ body{
 
 .apresenta{
 	margin-top: 100px;
+	height: 450px;
+
 	
 
 }
@@ -73,21 +75,30 @@ body{
 	color: #FFF;
 	height: 115px;
 	line-height: 115px;
-	
+	position: fixed;
+	bottom: 0;
 
 }
 #servicos{
-	height: 550px;
+	min-height: 630px;
 	background-color: #da552f;
 }
 #produtos{
-	height: 550px;
+	min-height: 630px;
 	background-color: #ccc;
 }
 #empresa{
-	height: 560px;
+	padding-top: 110px;
+	min-height: 630px;
 	background-color: #212cdf;
+	color: #fff;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 30px;
 }
 textarea{
 	height: 60px;
+}
+#imagem_banner{
+	height: 600px;
 }

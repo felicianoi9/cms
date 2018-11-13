@@ -15,6 +15,32 @@ class painelController extends Controller{
         
         $this->loadTemplateInPainel('painel/home',$data);
     }
+
+    /////////////// INÍCIO - Actions da Empresa /////////////////
+    public function empresa(){
+        $data = array(
+            'empresa'=>''
+        );
+        $u = new Users();
+        $u->isLogged();
+        $empresa = new Empresa();
+        $data['empresa'] = $empresa->getInfo();
+
+        if(isset($_POST['texto'])){            
+            
+            $texto = addslashes($_POST['texto']);
+            $missao = addslashes($_POST['missao']);
+            $visao = addslashes($_POST['visao']);
+            $valores = addslashes($_POST['valores']);
+
+            $empresa->edit($texto, $missao, $visao, $valores );
+            header('Location: '.BASE.'painel');
+        }          
+        $this->loadTemplateInPainel('painel/empresa_texto',$data); 
+    }
+
+    /////////////// FIM - Actions da Empresa /////////////////
+
     /////////////// INÍCIO - Actions do Menu /////////////////
     public function menus(){
         $data = array(

@@ -14,23 +14,22 @@
   
     <!-- navbar cores bg-dark, bg-light, bg-warning, ... -->
     <nav   class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
-      <a href="#" class="navbar-brand"><img src="<?php echo BASE;?>assets/images/logo.jpg" width="100"></a>
+      <a href="<?php echo BASE;?>" class="navbar-brand"><img src="<?php echo BASE;?>assets/images/logo.jpg" width="100"></a>
       <button class="navbar-toggler bg-light " data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse " id="navbarMenu">
         <div class="navbar-nav">
-          <?php $this->loadMenu() ;?>
+          <a href="<?php echo BASE;?>" class="nav-item nav-link  ">Home</a>
+          <a href="#empresa" class="nav-item nav-link">Empresa</a>
+          <a href="#servicos" class="nav-item nav-link  ">Seviços</a>
+          <a href="#produtos" class="nav-item nav-link">Produtos</a>
+          
           <a href="#contato" class="nav-item nav-link" data-toggle="modal" data-target="#contato">Contato</a>
           <a href="#mapa" class="nav-item nav-link" data-toggle="modal" data-target="#mapa">Onde Estamos</a>
         </div>
       </div>
       
-      <form method="POST" class="form-inline">
-        <input type="text" class="form-control" placeholder="Pesquisar..." name="">
-        
-      </form> 
-
       <!-- botão Login MODAL  -->
       <a href="" class="nav-item nav-link login" data-toggle="modal" data-target="#login"><span> Entrar</span></a>  
       <!-- FIM botão Login MODAL  --> 
@@ -50,28 +49,28 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100 img-fluid" src="<?php echo BASE;?>assets/images/image1.jpg" >
+        <img class="d-block w-100 img-fluid imagem_banner" src="<?php echo BASE;?>assets/images/image1.jpg" >
         <div class="carousel-caption d-none d-md-block">
             <h5>Alguma Legenda</h5>
             <p>alguma Sublegenda blabla</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100 img-fluid" src="<?php echo BASE;?>assets/images/image2.jpg"  >
+        <img class="d-block w-100 img-fluid imagem_banner" src="<?php echo BASE;?>assets/images/image2.jpg"  >
         <div class="carousel-caption d-none d-md-block">
             <h5>Alguma Legenda</h5>
             <p>alguma Sublegenda blabla</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100 img-fluid" src="<?php echo BASE;?>assets/images/image3.jpg"   >
+        <img class="d-block w-100 img-fluid imagem_banner" src="<?php echo BASE;?>assets/images/image3.jpg"   >
         <div class="carousel-caption d-none d-md-block">
             <h5>Alguma Legenda</h5>
             <p>alguma Sublegenda blabla</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100 img-fluid" src="<?php echo BASE;?>assets/images/image4.jpg"  >
+        <img class="d-block w-100 img-fluid imagem_banner" src="<?php echo BASE;?>assets/images/image4.jpg"  >
         <div class="carousel-caption d-none d-md-block">
             <h5>Alguma Legenda</h5>
             <p>alguma Sublegenda blabla</p>
@@ -101,15 +100,15 @@
             <form method="POST">
               <div class="form-group">
                 
-                <input type="text" name="asssunto" placeholder="Assunto" class="form-control">
+                <input type="text" name="asssunto_contato" placeholder="Assunto" class="form-control">
               </div>
               <div class="form-group">
                 
-                <input type="email" name="email" placeholder="E-Mail" class="form-control">
+                <input type="email" name="email_contato" placeholder="E-Mail" class="form-control">
               </div>
               <div class="form-group">
                 
-                <textarea placeholder="Mensagem" class="form-control"></textarea>
+                <textarea name="mensagem_contato"  class="form-control"></textarea>
               </div>
               <div class="form-group">
                 
@@ -196,6 +195,14 @@
       </div>
     </div>  
 
+  <!-- empresa -->
+  <div  id="empresa" class="container-fluid">
+    <?php echo $this->empresa['texto'];?><br/>
+    <?php echo $this->empresa['missao'];?><br/>
+    <?php echo $this->empresa['visao'];?><br/>
+    <?php echo $this->empresa['valores'];?><br/>
+  </div>  
+
   <!-- Serviços -->
   <div  id="servicos" class="container-fluid">
 
@@ -212,10 +219,7 @@
   
   <!-- fim - produtos -->
 
-  <!-- empresa -->
-  <div  id="empresa" class="container-fluid">
-    
-  </div>
+  
   
   <!-- fim - empresa -->  
   
@@ -227,7 +231,7 @@
   
   <!-- fim - contato e Mapa --> 
 
-  <div class="footer  fixed-bottom">  
+  <div class="footer  container-fluid">  
 
     <div class="container-fluid">
     
